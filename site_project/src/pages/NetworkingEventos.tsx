@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import eventosSvg from "../../imports/16_-_TELA_NETWORKING_-_EVENTOS__1_.svg";
 import NavDropdown from "../components/NavDropdown";
+import AuthNavSlot from "../components/AuthNavSlot";
 
 /* SVG canvas: 1900 × 4401 */
 const W = 1900;
@@ -46,8 +47,7 @@ export default function NetworkingEventos() {
         <NavDropdown ariaLabel="Networking" items={[{ label: "Eventos", to: "/networking/eventos" }, { label: "Grupos", to: "/networking/grupos" }, { label: "Empresas", to: "/networking/empresas" }]}
           triggerStyle={{ position: "absolute", left: x(1100), top: y(135), width: w(190), height: h(35) }}
           panelLeft={x(1112)} panelTop={y(195)} />
-        <Link to="/login" style={{ position: "absolute", left: x(1665), top: y(134), width: w(74), height: h(45), pointerEvents: "auto", display: "block" }} aria-label="Login" />
-        <Link to="/cadastro" style={{ position: "absolute", left: x(1737), top: y(134), width: w(106), height: h(42), pointerEvents: "auto", display: "block", borderRadius: 999 }} aria-label="Cadastro" />
+        <AuthNavSlot x={x} y={y} w={w} h={h} />
 
         {/* ── Libras ── */}
         <button aria-label="Acessibilidade em Libras"

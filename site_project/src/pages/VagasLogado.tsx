@@ -1,6 +1,9 @@
+import { useEffect } from "react";
 import { Link, useNavigate } from "react-router";
 import vagasLogadoSvg from "../../imports/06_-_TELA_VAGAS_-_COM_CASTARO__1_.svg";
 import NavDropdown from "../components/NavDropdown";
+import AuthNavSlot from "../components/AuthNavSlot";
+import { useAuth } from "../auth";
 
 /*
   Variante "logada" da tela de Vagas (o Figma exportou como uma tela
@@ -32,6 +35,11 @@ const PAGES = [
 
 export default function VagasLogado() {
   const navigate = useNavigate();
+  const { user } = useAuth();
+
+  useEffect(() => {
+    if (!user) navigate("/vagas", { replace: true });
+  }, [user, navigate]);
 
   const searchInput: React.CSSProperties = {
     position: "absolute", inset: 0, width: "100%", height: "100%",
@@ -82,11 +90,8 @@ export default function VagasLogado() {
         <Link to="/parceiros" style={{ position: "absolute", left: x(1318), top: y(150), width: w(82), height: h(35), pointerEvents: "auto", display: "block" }} aria-label="Parceiros" />
         <Link to="/planos" style={{ position: "absolute", left: x(1475), top: y(150), width: w(58), height: h(35), pointerEvents: "auto", display: "block" }} aria-label="Planos" />
 
-        {/* Avatar → /perfil */}
-        <Link to="/perfil"
-          style={{ position: "absolute", left: x(1795), top: y(115), width: w(95), height: h(90),
-            pointerEvents: "auto", display: "block", borderRadius: 999 }}
-          aria-label="Olá, Julia — ver perfil" />
+        {/* Olá, [nome] + avatar (cobre a versão fixa "Julia" desenhada na imagem) */}
+        <AuthNavSlot x={x} y={y} w={w} h={h} coverBox={{ left: 1590, top: 100, width: 310, height: 120 }} />
 
         {/* ── Libras ── */}
         <button aria-label="Acessibilidade em Libras"

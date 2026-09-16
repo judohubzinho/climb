@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import homeImg from "./imports/01_-_TELA_PRINCIPAL.jpg";
 import NavDropdown from "./components/NavDropdown";
+import AuthNavSlot from "./components/AuthNavSlot";
 
 /*
   App.tsx — Home page
@@ -61,8 +62,7 @@ export default function App() {
           panelLeft={x(1112)} panelTop={y(195)} />
         <Link to="/parceiros" style={{ position: "absolute", left: x(1318), top: y(135), width: w(82), height: h(35), pointerEvents: "auto", display: "block" }} aria-label="Parceiros" />
         <Link to="/planos" style={{ position: "absolute", left: x(1475), top: y(135), width: w(58), height: h(35), pointerEvents: "auto", display: "block" }} aria-label="Planos" />
-        <Link to="/login" style={{ position: "absolute", left: x(1665), top: y(134), width: w(74), height: h(45), pointerEvents: "auto", display: "block" }} aria-label="Login" />
-        <Link to="/cadastro" style={{ position: "absolute", left: x(1737), top: y(134), width: w(106), height: h(42), pointerEvents: "auto", display: "block", borderRadius: 999 }} aria-label="Cadastro" />
+        <AuthNavSlot x={x} y={y} w={w} h={h} />
 
         {/* ── Âncora: seção "Sobre a empresa" ── */}
         <div id="sobre" style={{ position: "absolute", top: y(1650), left: 0, width: 1, height: 1 }} />
