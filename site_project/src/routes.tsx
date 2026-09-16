@@ -15,6 +15,7 @@ import NetworkingGrupos from "./pages/NetworkingGrupos";
 import NetworkingEmpresas from "./pages/NetworkingEmpresas";
 import Planos from "./pages/Planos";
 import Parceiros from "./pages/Parceiros";
+import DescubraPessoas from "./pages/DescubraPessoas";
 
 export const router = createBrowserRouter([
   {
@@ -80,5 +81,9 @@ export const router = createBrowserRouter([
   {
     path: "/parceiros",
     Component: Parceiros,
+  },
+  {
+    path: "/descubra-pessoas",
+    Component: DescubraPessoas,
   },
 ]);

@@ -46,6 +46,11 @@ export default function TrilhasTestes() {
           style={{ position: "absolute", left: x(59), top: y(130), width: w(124), height: h(50),
             pointerEvents: "auto", display: "block" }}
           aria-label="CLIMB — início" />
+        <Link to="/#sobre"
+          style={{ position: "absolute", left: x(312), top: y(134), width: w(60), height: h(40),
+            pointerEvents: "auto", display: "block" }}
+          aria-label="Sobre" />
+
         <Link to="/vagas"
           style={{ position: "absolute", left: x(433), top: y(134), width: w(75), height: h(45),
             pointerEvents: "auto", display: "block" }}
@@ -58,9 +63,9 @@ export default function TrilhasTestes() {
           triggerStyle={{ position: "absolute", left: x(616), top: y(135), width: w(25), height: h(35) }}
           panelLeft={x(551)} panelTop={y(195)} />
         <Link to="/templates" style={{ position: "absolute", left: x(724), top: y(135), width: w(90), height: h(35), pointerEvents: "auto", display: "block" }} aria-label="Templates" />
-        <Link to="/networking/eventos" style={{ position: "absolute", left: x(1112), top: y(135), width: w(75), height: h(35), pointerEvents: "auto", display: "block" }} aria-label="Networking" />
-        <NavDropdown ariaLabel="Mais opções de Networking" items={[{ label: "Eventos", to: "/networking/eventos" }, { label: "Grupos", to: "/networking/grupos" }, { label: "Empresas", to: "/networking/empresas" }]}
-          triggerStyle={{ position: "absolute", left: x(1187), top: y(135), width: w(40), height: h(35) }}
+        <Link to="/descubra-pessoas" style={{ position: "absolute", left: x(892), top: y(135), width: w(165), height: h(35), pointerEvents: "auto", display: "block" }} aria-label="Descubra pessoas" />
+        <NavDropdown ariaLabel="Networking" items={[{ label: "Eventos", to: "/networking/eventos" }, { label: "Grupos", to: "/networking/grupos" }, { label: "Empresas", to: "/networking/empresas" }]}
+          triggerStyle={{ position: "absolute", left: x(1112), top: y(135), width: w(115), height: h(35) }}
           panelLeft={x(1112)} panelTop={y(195)} />
         <Link to="/parceiros" style={{ position: "absolute", left: x(1318), top: y(135), width: w(82), height: h(35), pointerEvents: "auto", display: "block" }} aria-label="Parceiros" />
         <Link to="/planos" style={{ position: "absolute", left: x(1475), top: y(135), width: w(58), height: h(35), pointerEvents: "auto", display: "block" }} aria-label="Planos" />

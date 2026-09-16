@@ -96,6 +96,11 @@ export default function Cadastro() {
           aria-label="CLIMB — início" />
 
         {/* Navbar: "Vagas" */}
+        <Link to="/#sobre"
+          style={{ position: "absolute", left: lx(312), top: ly(134), width: lw(60), height: lh(40),
+            pointerEvents: "auto", display: "block" }}
+          aria-label="Sobre" />
+
         <Link to="/vagas"
           style={{ position:"absolute", left:lx(433), top:ly(134), width:lw(75), height:lh(45),
             pointerEvents:"auto", display:"block" }}
@@ -110,9 +115,9 @@ export default function Cadastro() {
           triggerStyle={{ position: "absolute", left: lx(616), top: ly(135), width: lw(25), height: lh(35) }}
           panelLeft={lx(551)} panelTop={ly(195)} />
         <Link to="/templates" style={{ position: "absolute", left: lx(724), top: ly(135), width: lw(90), height: lh(35), pointerEvents: "auto", display: "block" }} aria-label="Templates" />
-        <Link to="/networking/eventos" style={{ position: "absolute", left: lx(1112), top: ly(135), width: lw(75), height: lh(35), pointerEvents: "auto", display: "block" }} aria-label="Networking" />
-        <NavDropdown ariaLabel="Mais opções de Networking" items={[{ label: "Eventos", to: "/networking/eventos" }, { label: "Grupos", to: "/networking/grupos" }, { label: "Empresas", to: "/networking/empresas" }]}
-          triggerStyle={{ position: "absolute", left: lx(1187), top: ly(135), width: lw(40), height: lh(35) }}
+        <Link to="/descubra-pessoas" style={{ position: "absolute", left: lx(892), top: ly(135), width: lw(165), height: lh(35), pointerEvents: "auto", display: "block" }} aria-label="Descubra pessoas" />
+        <NavDropdown ariaLabel="Networking" items={[{ label: "Eventos", to: "/networking/eventos" }, { label: "Grupos", to: "/networking/grupos" }, { label: "Empresas", to: "/networking/empresas" }]}
+          triggerStyle={{ position: "absolute", left: lx(1112), top: ly(135), width: lw(115), height: lh(35) }}
           panelLeft={lx(1112)} panelTop={ly(195)} />
         <Link to="/parceiros" style={{ position: "absolute", left: lx(1318), top: ly(135), width: lw(82), height: lh(35), pointerEvents: "auto", display: "block" }} aria-label="Parceiros" />
         <Link to="/planos" style={{ position: "absolute", left: lx(1475), top: ly(135), width: lw(58), height: lh(35), pointerEvents: "auto", display: "block" }} aria-label="Planos" />

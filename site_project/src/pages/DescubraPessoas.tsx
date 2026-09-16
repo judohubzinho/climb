@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
-import eventosSvg from "../../imports/16_-_TELA_NETWORKING_-_EVENTOS__1_.svg";
+import pessoasSvg from "../../imports/13_-_DESCUBRA_PESSOAS__1_.svg";
 import NavDropdown from "../components/NavDropdown";
 
-/* SVG canvas: 1900 × 4401 */
+/* SVG canvas: 1900 × 4676 */
 const W = 1900;
-const H = 4401;
+const H = 4676;
 
 const x = (v: number) => `${((v / W) * 100).toFixed(4)}%`;
 const y = (v: number) => `${((v / H) * 100).toFixed(4)}%`;
@@ -13,12 +13,24 @@ const w = (v: number) => `${((v / W) * 100).toFixed(4)}%`;
 const h = (v: number) => `${((v / H) * 100).toFixed(4)}%`;
 
 const BD = "'Franklin Gothic Demi:Regular','Barlow',Arial,sans-serif";
-const CARD_X = [365, 740, 1200];
-const CARD_W = [315, 420, 425];
+const LAV = "#A2A6F2";
 
-export default function NetworkingEventos() {
+const CARD_X = [265, 740, 1215];
+const CARD_W = [410, 420, 425];
+
+const FILTERS = [
+  { id: "nivel", x: 500, w: 320, label: "Nível profissional" },
+  { id: "area", x: 850, w: 315, label: "Área de atuação" },
+  { id: "inclusao", x: 1200, w: 200, label: "Inclusão" },
+];
+
+export default function DescubraPessoas() {
   const navigate = useNavigate();
   const [busca, setBusca] = useState("");
+  const [openFilters, setOpenFilters] = useState<Record<string, boolean>>({});
+
+  const toggleFilter = (id: string) => setOpenFilters(s => ({ ...s, [id]: !s[id] }));
+  const limparFiltros = () => { setOpenFilters({}); setBusca(""); };
 
   const searchInput: React.CSSProperties = {
     position: "absolute", inset: 0, width: "100%", height: "100%",
@@ -29,7 +41,7 @@ export default function NetworkingEventos() {
 
   return (
     <div style={{ position: "relative", width: "100%", background: "#080808" }}>
-      <img src={eventosSvg} alt="Networking — Eventos — CLIMB"
+      <img src={pessoasSvg} alt="Descubra Pessoas — CLIMB"
         style={{ width: "100%", height: "auto", display: "block", userSelect: "none" }} draggable={false} />
 
       <div style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
@@ -46,26 +58,47 @@ export default function NetworkingEventos() {
         <NavDropdown ariaLabel="Networking" items={[{ label: "Eventos", to: "/networking/eventos" }, { label: "Grupos", to: "/networking/grupos" }, { label: "Empresas", to: "/networking/empresas" }]}
           triggerStyle={{ position: "absolute", left: x(1112), top: y(135), width: w(115), height: h(35) }}
           panelLeft={x(1112)} panelTop={y(195)} />
+        <Link to="/parceiros" style={{ position: "absolute", left: x(1318), top: y(135), width: w(82), height: h(35), pointerEvents: "auto", display: "block" }} aria-label="Parceiros" />
+        <Link to="/planos" style={{ position: "absolute", left: x(1475), top: y(135), width: w(58), height: h(35), pointerEvents: "auto", display: "block" }} aria-label="Planos" />
         <Link to="/login" style={{ position: "absolute", left: x(1665), top: y(134), width: w(74), height: h(45), pointerEvents: "auto", display: "block" }} aria-label="Login" />
         <Link to="/cadastro" style={{ position: "absolute", left: x(1737), top: y(134), width: w(106), height: h(42), pointerEvents: "auto", display: "block", borderRadius: 999 }} aria-label="Cadastro" />
 
         {/* ── Libras ── */}
         <button aria-label="Acessibilidade em Libras"
-          style={{ position: "absolute", left: x(1765), top: y(1590), width: w(80), height: h(80), pointerEvents: "auto", background: "transparent", border: "none", cursor: "pointer", borderRadius: "50%" }} />
+          style={{ position: "absolute", left: x(1765), top: y(1595), width: w(80), height: h(80), pointerEvents: "auto", background: "transparent", border: "none", cursor: "pointer", borderRadius: "50%" }} />
 
         {/* ── Busca ── */}
-        <div style={{ position: "absolute", left: x(395), top: y(695), width: w(1105), height: h(80), pointerEvents: "auto" }}>
-          <input type="text" value={busca} onChange={e => setBusca(e.target.value)} style={searchInput} aria-label="Buscar eventos" />
+        <div style={{ position: "absolute", left: x(400), top: y(835), width: w(1090), height: h(80), pointerEvents: "auto" }}>
+          <input type="text" value={busca} onChange={e => setBusca(e.target.value)} style={searchInput} aria-label="Buscar pessoas" />
         </div>
 
-        {/* ── "Comprar ingressos" — 6 eventos (levam pro Cadastro) ── */}
-        {[1975, 2985].map(ry => CARD_X.map((cx, i) => (
-          <button key={`${ry}-${i}`} type="button" onClick={() => navigate("/cadastro")} aria-label="Comprar ingressos"
-            style={{ position: "absolute", left: x(cx), top: y(ry), width: w(CARD_W[i]), height: h(60), pointerEvents: "auto", background: "transparent", border: "none", cursor: "pointer", borderRadius: 999 }} />
+        {/* ── Filtros (visual) ── */}
+        {FILTERS.map(f => (
+          <button key={f.id} type="button" aria-label={f.label} aria-pressed={!!openFilters[f.id]}
+            onClick={() => toggleFilter(f.id)}
+            style={{
+              position: "absolute", left: x(f.x), top: y(975), width: w(f.w), height: h(75),
+              pointerEvents: "auto", background: "transparent",
+              border: openFilters[f.id] ? `2px solid ${LAV}` : "none",
+              borderRadius: 999, cursor: "pointer", boxSizing: "border-box",
+            }} />
+        ))}
+        <button type="button" onClick={limparFiltros} aria-label="Limpar filtros"
+          style={{ position: "absolute", left: x(1400), top: y(975), width: w(200), height: h(75),
+            pointerEvents: "auto", background: "transparent", border: "none", cursor: "pointer" }} />
+
+        {/* ── "Seguir" — 6 perfis (levam pro Cadastro) ── */}
+        {[2175, 3180].map(ry => CARD_X.map((cx, i) => (
+          <button key={`${ry}-${i}`} type="button" onClick={() => navigate("/cadastro")} aria-label="Seguir"
+            style={{ position: "absolute", left: x(cx), top: y(ry), width: w(CARD_W[i]), height: h(70), pointerEvents: "auto", background: "transparent", border: "none", cursor: "pointer", borderRadius: 999 }} />
         )))}
 
+        {/* ── Ver mais (visual) ── */}
+        <button type="button" aria-label="Ver mais pessoas"
+          style={{ position: "absolute", left: x(880), top: y(3330), width: w(160), height: h(40), pointerEvents: "auto", background: "transparent", border: "none", cursor: "pointer" }} />
+
         {/* ── Footer logo → home ── */}
-        <Link to="/" style={{ position: "absolute", left: x(395), top: y(3740), width: w(140), height: h(50), pointerEvents: "auto", display: "block" }} aria-label="CLIMB footer" />
+        <Link to="/" style={{ position: "absolute", left: x(395), top: y(4016), width: w(140), height: h(50), pointerEvents: "auto", display: "block" }} aria-label="CLIMB footer" />
       </div>
     </div>
   );
