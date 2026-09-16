@@ -3,101 +3,12 @@
 
 @import 'tailwindcss';
 
-/* ── Brakle ─────────────────────────────────────────────────────────────── */
-/* Place your .otf files in public/fonts/ with these exact names:           */
-/*   public/fonts/Brakle-Light.otf                                          */
-/*   public/fonts/Brakle-Bold.otf                                           */
-
-@font-face {
-  font-family: 'Brakle:Light';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url('/fonts/Brakle-Light.otf') format('opentype'),
-       local('Brakle Light'),
-       local('BarlowCondensed-Light');
-}
-
-@font-face {
-  font-family: 'Brakle:Bold';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('/fonts/Brakle-Bold.otf') format('opentype'),
-       local('Brakle Bold'),
-       local('BarlowCondensed-Bold');
-}
-
-@font-face {
-  font-family: 'Brakle:Semi_Bold_Italic';
-  font-style: italic;
-  font-weight: 600;
-  font-display: swap;
-  src: url('/fonts/Brakle-SemiBoldItalic.otf') format('opentype'),
-       local('Brakle SemiBold Italic');
-}
-
-/* ── Franklin Gothic ────────────────────────────────────────────────────── */
-/* Windows system font — also works if you add files to public/fonts/:      */
-/*   public/fonts/FranklinGothicMedium.ttf   (or .otf)                     */
-/*   public/fonts/FranklinGothicBook.ttf                                    */
-/*   public/fonts/FranklinGothicDemi.ttf                                    */
-/*   public/fonts/FranklinGothicMediumItalic.ttf                            */
-
-@font-face {
-  font-family: 'Franklin Gothic Medium:Regular';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('/fonts/FranklinGothicMedium.ttf') format('truetype'),
-       url('/fonts/FranklinGothicMedium.otf') format('opentype'),
-       local('Franklin Gothic Medium'),
-       local('FranklinGothic-Medium');
-}
-
-@font-face {
-  font-family: 'Franklin Gothic Book:Regular';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('/fonts/FranklinGothicBook.ttf') format('truetype'),
-       url('/fonts/FranklinGothicBook.otf') format('opentype'),
-       local('Franklin Gothic Book'),
-       local('FranklinGothic-Book');
-}
-
-@font-face {
-  font-family: 'Franklin Gothic Demi:Regular';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('/fonts/FranklinGothicDemi.ttf') format('truetype'),
-       url('/fonts/FranklinGothicDemi.otf') format('opentype'),
-       local('Franklin Gothic Demi'),
-       local('FranklinGothic-Demi');
-}
-
-@font-face {
-  font-family: 'Franklin Gothic Medium:Italic';
-  font-style: italic;
-  font-weight: 500;
-  font-display: swap;
-  src: url('/fonts/FranklinGothicMediumItalic.ttf') format('truetype'),
-       url('/fonts/FranklinGothicMediumItalic.otf') format('opentype'),
-       local('Franklin Gothic Medium Italic'),
-       local('FranklinGothic-MediumItalic');
-}
-
-@font-face {
-  font-family: 'Franklin Gothic Heavy:Regular';
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url('/fonts/FranklinGothicHeavy.ttf') format('truetype'),
-       url('/fonts/FranklinGothicHeavy.otf') format('opentype'),
-       local('Franklin Gothic Heavy'),
-       local('FranklinGothic-Heavy');
-}
+/* Fontes 'Brakle' e 'Franklin Gothic' não têm arquivo disponível neste
+   projeto (não vieram em nenhum dos arquivos enviados) — o navegador usa
+   automaticamente as fontes de fallback (Barlow / Arial / sans-serif) já
+   configuradas em cada elemento. Nada quebra, é só troca visual mínima.
+   Se um dia você tiver os arquivos .otf/.ttf, coloque em public/fonts/ e
+   pode adicionar @font-face rules aqui apontando pra eles. */
 
 /* ── Global ─────────────────────────────────────────────────────────────── */
 html, body, #root {

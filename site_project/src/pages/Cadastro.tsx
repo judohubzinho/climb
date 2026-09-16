@@ -117,7 +117,7 @@ export default function Cadastro() {
         <Link to="/templates" style={{ position: "absolute", left: lx(724), top: ly(135), width: lw(90), height: lh(35), pointerEvents: "auto", display: "block" }} aria-label="Templates" />
         <Link to="/descubra-pessoas" style={{ position: "absolute", left: lx(892), top: ly(135), width: lw(165), height: lh(35), pointerEvents: "auto", display: "block" }} aria-label="Descubra pessoas" />
         <NavDropdown ariaLabel="Networking" items={[{ label: "Eventos", to: "/networking/eventos" }, { label: "Grupos", to: "/networking/grupos" }, { label: "Empresas", to: "/networking/empresas" }]}
-          triggerStyle={{ position: "absolute", left: lx(1112), top: ly(135), width: lw(115), height: lh(35) }}
+          triggerStyle={{ position: "absolute", left: lx(1100), top: ly(135), width: lw(190), height: lh(35) }}
           panelLeft={lx(1112)} panelTop={ly(195)} />
         <Link to="/parceiros" style={{ position: "absolute", left: lx(1318), top: ly(135), width: lw(82), height: lh(35), pointerEvents: "auto", display: "block" }} aria-label="Parceiros" />
         <Link to="/planos" style={{ position: "absolute", left: lx(1475), top: ly(135), width: lw(58), height: lh(35), pointerEvents: "auto", display: "block" }} aria-label="Planos" />
