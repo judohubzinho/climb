@@ -192,7 +192,7 @@ export default function Login() {
 
         {/* ── ENTRAR button (SVG: x=472, y=1643, w=940, h=73) ── */}
         <button
-          onClick={() => { if (email && senha) navigate("/") }}
+          onClick={() => { if (email && senha) navigate("/perfil") }}
           style={{ position:"absolute", left:x(472), top:y(1643), width:w(940), height:h(73),
             pointerEvents:"auto", background:"transparent", border:"none", cursor:"pointer",
             borderRadius:999 }}
