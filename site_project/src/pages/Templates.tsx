@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import templatesSvg from "../../imports/10_-_TELA_TEMPLATES__1_.svg";
 import NavDropdown from "../components/NavDropdown";
-import AuthNavSlot from "../components/AuthNavSlot";
 
 /* SVG canvas: 1900 × 3944 */
 const W = 1900;
@@ -47,7 +46,8 @@ export default function Templates() {
         <NavDropdown ariaLabel="Networking" items={[{ label: "Eventos", to: "/networking/eventos" }, { label: "Grupos", to: "/networking/grupos" }]}
           triggerStyle={{ position: "absolute", left: x(1100), top: y(135), width: w(190), height: h(35) }}
           panelLeft={x(1112)} panelTop={y(195)} />
-        <AuthNavSlot x={x} y={y} w={w} h={h} />
+        <Link to="/login" style={{ position: "absolute", left: x(1665), top: y(134), width: w(74), height: h(45), pointerEvents: "auto", display: "block" }} aria-label="Login" />
+        <Link to="/cadastro" style={{ position: "absolute", left: x(1737), top: y(134), width: w(106), height: h(42), pointerEvents: "auto", display: "block", borderRadius: 999 }} aria-label="Cadastro" />
 
         {/* ── Libras ── */}
         <button aria-label="Acessibilidade em Libras"

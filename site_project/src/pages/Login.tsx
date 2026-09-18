@@ -2,8 +2,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import loginSvg from "../../imports/LOGIN_CLIENTE.svg";
 import NavDropdown from "../components/NavDropdown";
-import AuthNavSlot from "../components/AuthNavSlot";
-import { useAuth } from "../auth";
 
 /*
   Strategy: display the original Figma SVG as a full-width image, then
@@ -31,7 +29,6 @@ const BM     = "'Franklin Gothic Medium:Regular','Barlow',Arial,sans-serif";
 
 export default function Login() {
   const navigate = useNavigate();
-  const { login } = useAuth();
   const [email,  setEmail]  = useState("");
   const [senha,  setSenha]  = useState("");
   const [show,   setShow]   = useState(false);
@@ -100,7 +97,11 @@ export default function Login() {
         <Link to="/planos" style={{ position: "absolute", left: x(1475), top: y(135), width: w(58), height: h(35), pointerEvents: "auto", display: "block" }} aria-label="Planos" />
 
         {/* ── Navbar: "Cadastro" pill (ou "Olá, nome" quando logado) ── */}
-        <AuthNavSlot x={x} y={y} w={w} h={h} />
+        {/* ── Navbar: "Cadastro" pill ── */}
+        <Link to="/cadastro"
+          style={{ position:"absolute", left:x(1737), top:y(134), width:w(106), height:h(42),
+            pointerEvents:"auto", display:"block", borderRadius:999 }}
+          aria-label="Cadastro" />
 
         {/* ── Acesso rápido: Google ── */}
         <button aria-label="Entrar com Google"
@@ -191,12 +192,7 @@ export default function Login() {
 
         {/* ── ENTRAR button (SVG: x=472, y=1643, w=940, h=73) ── */}
         <button
-          onClick={() => {
-            if (!email || !senha) return;
-            const nome = email.split("@")[0].replace(/[._-]+/g, " ").trim();
-            login(nome.charAt(0).toUpperCase() + nome.slice(1));
-            navigate("/perfil");
-          }}
+          onClick={() => { if (email && senha) navigate("/") }}
           style={{ position:"absolute", left:x(472), top:y(1643), width:w(940), height:h(73),
             pointerEvents:"auto", background:"transparent", border:"none", cursor:"pointer",
             borderRadius:999 }}

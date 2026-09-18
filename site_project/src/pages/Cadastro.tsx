@@ -2,8 +2,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import cadastroSvg from "../../imports/02_-_TELA_CADASTRO.svg";
 import NavDropdown from "../components/NavDropdown";
-import AuthNavSlot from "../components/AuthNavSlot";
-import { useAuth } from "../auth";
 
 /*
   SVG canvas: 1900 × 3189
@@ -26,7 +24,6 @@ const BK    = "'Franklin Gothic Book:Regular','Barlow',Arial,sans-serif";
 
 export default function Cadastro() {
   const navigate = useNavigate();
-  const { login } = useAuth();
 
   // Tipo de conta (3 cards): estudante | formado | empresa
   const [tipo,    setTipo]    = useState<number | null>(null);
@@ -126,7 +123,11 @@ export default function Cadastro() {
         <Link to="/planos" style={{ position: "absolute", left: lx(1475), top: ly(135), width: lw(58), height: lh(35), pointerEvents: "auto", display: "block" }} aria-label="Planos" />
 
         {/* Navbar: "Login" pill (ou "Olá, nome" quando logado) */}
-        <AuthNavSlot x={lx} y={ly} w={lw} h={lh} />
+        {/* Navbar: "Login" pill */}
+        <Link to="/login"
+          style={{ position:"absolute", left:lx(1737), top:ly(134), width:lw(106), height:lh(42),
+            pointerEvents:"auto", display:"block", borderRadius:999 }}
+          aria-label="Login" />
 
         {/* ── 3 tipo-de-conta cards ──
             Card 1: x=237, y=983, w=463, h=187 (Estudante)
@@ -190,7 +191,7 @@ export default function Cadastro() {
 
         {/* ── Botão CRIAR CONTA (x=473, y=2056, w=940, h=73) ── */}
         <button
-          onClick={() => { if (nome && email && senha) { login(nome); navigate("/perfil") } }}
+          onClick={() => { if (nome && email && senha) navigate("/perfil") }}
           style={{
             position: "absolute",
             left: lx(473), top: ly(2056), width: lw(940), height: lh(73),

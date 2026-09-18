@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import vagasSvg from "../../imports/05_-_TELA_VAGAS_-_SEM_CASTARO__1_.svg";
 import NavDropdown from "../components/NavDropdown";
-import AuthNavSlot from "../components/AuthNavSlot";
-import { useAuth } from "../auth";
 
 /*
   Mesma estratégia das outras páginas: SVG do Figma como imagem de fundo
@@ -42,12 +40,6 @@ const PAGES = [
 
 export default function Vagas() {
   const navigate = useNavigate();
-  const { user } = useAuth();
-
-  useEffect(() => {
-    if (user) navigate("/vagas-logado", { replace: true });
-  }, [user, navigate]);
-
   const [cargo, setCargo] = useState("");
   const [regiao, setRegiao] = useState("");
   const [openFilters, setOpenFilters] = useState<Record<string, boolean>>({});
@@ -83,7 +75,8 @@ export default function Vagas() {
           style={{ position: "absolute", left: x(312), top: y(134), width: w(60), height: h(40),
             pointerEvents: "auto", display: "block" }}
           aria-label="Sobre" />
-        <AuthNavSlot x={x} y={y} w={w} h={h} />
+        <Link to="/login" style={{ position: "absolute", left: x(1665), top: y(134), width: w(74), height: h(45), pointerEvents: "auto", display: "block" }} aria-label="Login" />
+        <Link to="/cadastro" style={{ position: "absolute", left: x(1737), top: y(134), width: w(106), height: h(42), pointerEvents: "auto", display: "block", borderRadius: 999 }} aria-label="Cadastro" />
 
         {/* ── Navbar: "Cursos" (texto → /cursos) e ▾ (dropdown) / "Networking" ▾ ── */}
         <Link to="/cursos"
