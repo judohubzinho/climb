@@ -191,12 +191,7 @@ export default function Login() {
 
         {/* ── ENTRAR button (SVG: x=472, y=1643, w=940, h=73) ── */}
         <button
-          onClick={() => {
-            const base = email.split("@")[0].replace(/[._-]+/g, " ").trim();
-            const nome = base ? base.charAt(0).toUpperCase() + base.slice(1) : "Visitante";
-            login(nome);
-            navigate("/perfil");
-          }}
+          onClick={() => { login("Julia"); navigate("/perfil"); }}
           style={{ position:"absolute", left:x(472), top:y(1643), width:w(940), height:h(73),
             pointerEvents:"auto", background:"transparent", border:"none", cursor:"pointer",
             borderRadius:999 }}

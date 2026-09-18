@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { useAuth } from "../auth";
+import avatarJulia from "../imports/avatar-julia.jpg";
 
 const CREAM = "#fff0da";
 const BLUE = "#555CF0";
@@ -55,7 +56,6 @@ export default function AuthNavSlot({ x, y, w, h, coverBox }: AuthNavSlotProps) 
     );
   }
 
-  const initial = user.name.trim().charAt(0).toUpperCase() || "?";
   const box = coverBox ?? { left: 1640, top: 105, width: 260, height: 78 };
 
   return (
@@ -72,11 +72,10 @@ export default function AuthNavSlot({ x, y, w, h, coverBox }: AuthNavSlotProps) 
           Olá, {user.name}
         </span>
         <span style={{
-          width: "2.3vw", height: "2.3vw", minWidth: 30, minHeight: 30, borderRadius: "50%",
-          background: BLUE, color: CREAM, display: "flex", alignItems: "center", justifyContent: "center",
-          fontFamily: BD, fontSize: "0.95vw", border: `2px solid ${CREAM}66`, flexShrink: 0,
+          width: "2.4vw", height: "2.4vw", minWidth: 32, minHeight: 32, borderRadius: "50%",
+          overflow: "hidden", flexShrink: 0, border: `2.5px solid ${BLUE}`, boxSizing: "border-box",
         }}>
-          {initial}
+          <img src={avatarJulia} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
         </span>
       </button>
 

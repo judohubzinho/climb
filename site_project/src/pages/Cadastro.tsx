@@ -190,7 +190,7 @@ export default function Cadastro() {
 
         {/* ── Botão CRIAR CONTA (x=473, y=2056, w=940, h=73) ── */}
         <button
-          onClick={() => { login(nome.trim() || "Visitante"); navigate("/perfil") }}
+          onClick={() => { login("Julia"); navigate("/perfil") }}
           style={{
             position: "absolute",
             left: lx(473), top: ly(2056), width: lw(940), height: lh(73),
