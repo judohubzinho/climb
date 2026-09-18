@@ -192,9 +192,9 @@ export default function Login() {
         {/* ── ENTRAR button (SVG: x=472, y=1643, w=940, h=73) ── */}
         <button
           onClick={() => {
-            if (!email || !senha) return;
-            const nome = email.split("@")[0].replace(/[._-]+/g, " ").trim();
-            login(nome.charAt(0).toUpperCase() + nome.slice(1));
+            const base = email.split("@")[0].replace(/[._-]+/g, " ").trim();
+            const nome = base ? base.charAt(0).toUpperCase() + base.slice(1) : "Visitante";
+            login(nome);
             navigate("/perfil");
           }}
           style={{ position:"absolute", left:x(472), top:y(1643), width:w(940), height:h(73),
